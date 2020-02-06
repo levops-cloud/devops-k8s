@@ -5,8 +5,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  rules:
-  - http:
+  rules: 
+  - host: k8s-ingress
+    http:
       paths:
         - path: /alpaca
           backend:
