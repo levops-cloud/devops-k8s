@@ -3,6 +3,9 @@ kind: ReplicaSet
 metadata:
   name: kuard
 spec:
+  selector:
+    matchLabels:
+      run: kuard
   replicas: 1
   template:
     metadata:
