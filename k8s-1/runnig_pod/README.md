@@ -2,19 +2,24 @@
 
     microk8s.kubectl port-forward  --address 0.0.0.0 kuard  8080:8080
 
-    microk8s.kubectl exec kuard date
+    microk8s.kubectl exec kuard -- date
 
-    microk8s.kubectl exec -it kuard ash
+    microk8s.kubectl exec -it kuard -- ash
 
     microk8s.kubectl cp <pod-name>:/captures/capture3.txt ./capture3.txt
 
     microk8s.kubectl cp $HOME/config.txt <pod-name>:/config.txt
+    
+    == Cleanup ==
+    kubectl delete pods kuard
 
 ==Pod with health check==
 
 microk8s.kubectl create -f kuard-pod-health.yaml
 
-    # Details of the restart can be found with kubectl describe kuard.
+kubectl port-forward --address 0.0.0.0 pod/kuard 8080:8080
+
+    # Details of the restart can be found with kubectl describe pod/kuard.
 
     # Kubernetes also supports tcpSocket health checks that
     # open a TCP socket; if the connection is successful, the probe succeeds. This style of
