@@ -22,9 +22,9 @@ microk8s.kubectl delete sts web --cascade=false
 When you create a headless service by setting clusterIP None, no load-balancing is done and no cluster IP is allocated for this service. Only DNS is automatically configured. When you run a DNS query for headless service, you will get the list of the Pods IPs and usually client dns chooses the first DNS record.
 
 ```
-$ kubectl create deployment nginx --image=stenote/nginx-hostnam
+$ kubectl create deployment nginx --image=stenote/nginx-hostname
 
-$ kubectl scale --replicas=3 deployment ngin
+$ kubectl scale --replicas=3 deployment nginx
 ```
 Expose a headless service by setting --cluster-ip=None
 ```
